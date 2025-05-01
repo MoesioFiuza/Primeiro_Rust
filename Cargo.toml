@@ -1,8 +1,13 @@
 [package]
-name = "meu_servidor_axum"
+name = "meu_servidor_axum" # Ou o nome que você escolheu
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-axum = "0.7" 
-tokio = { version = "1.0", features = ["full"] } 
+axum = { version = "0.7", features = ["json"] }
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1.0"
+tracing = "0.1" # Para logging
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] } # Para configurar logging no console
+tower-http = { version = "0.5", features = ["trace"] } # Middleware para tracing de requisições
